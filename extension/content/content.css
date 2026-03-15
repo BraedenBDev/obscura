@@ -1,0 +1,220 @@
+
+/* PII Highlight Styles */
+.pii-highlight {
+    background-color: #f0883e !important;
+    color: white !important;
+    padding: 2px 4px !important;
+    border-radius: 3px !important;
+    font-weight: bold !important;
+    cursor: pointer;
+    box-shadow: 0 0 3px rgba(240, 136, 62, 0.5) !important;
+    transition: all 0.2s ease !important;
+}
+
+.pii-highlight:hover {
+    background-color: #f85149 !important;
+    box-shadow: 0 0 6px rgba(248, 81, 73, 0.7) !important;
+    transform: scale(1.05) !important;
+}
+
+/* Tooltip styling for entity label */
+.pii-highlight[title] {
+    text-decoration: underline dashed rgba(248, 81, 73, 0.5) !important;
+}
+
+.pii-highlight[title]:hover::after {
+    content: attr(title);
+    position: absolute;
+    background: #1c2128;
+    color: #e6edf3;
+    padding: 5px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    white-space: nowrap;
+    z-index: 10000;
+    border: 1px solid #30363d;
+}
+
+/* Different colors for different entity types */
+.pii-highlight[data-label="email"] {
+    background-color: #0969da !important;
+    box-shadow: 0 0 3px rgba(9, 105, 218, 0.5) !important;
+}
+
+.pii-highlight[data-label="email"]:hover {
+    background-color: #033d8b !important;
+    box-shadow: 0 0 6px rgba(9, 105, 218, 0.7) !important;
+}
+
+.pii-highlight[data-label="phone"] {
+    background-color: #238636 !important;
+    box-shadow: 0 0 3px rgba(35, 134, 54, 0.5) !important;
+}
+
+.pii-highlight[data-label="phone"]:hover {
+    background-color: #1f6feb !important;
+    box-shadow: 0 0 6px rgba(35, 134, 54, 0.7) !important;
+}
+
+.pii-highlight[data-label="credit card"] {
+    background-color: #da3633 !important;
+    box-shadow: 0 0 3px rgba(218, 54, 51, 0.5) !important;
+}
+
+.pii-highlight[data-label="credit card"]:hover {
+    background-color: #a4161a !important;
+    box-shadow: 0 0 6px rgba(218, 54, 51, 0.7) !important;
+}
+
+.pii-highlight[data-label="ssn"] {
+    background-color: #9e6a03 !important;
+    box-shadow: 0 0 3px rgba(158, 106, 3, 0.5) !important;
+}
+
+.pii-highlight[data-label="ssn"]:hover {
+    background-color: #d29922 !important;
+    box-shadow: 0 0 6px rgba(158, 106, 3, 0.7) !important;
+}
+
+.pii-highlight[data-label="address"],
+.pii-highlight[data-label="location"] {
+    background-color: #8957e5 !important;
+    box-shadow: 0 0 3px rgba(137, 87, 229, 0.5) !important;
+}
+
+.pii-highlight[data-label="address"]:hover,
+.pii-highlight[data-label="location"]:hover {
+    background-color: #6e40aa !important;
+    box-shadow: 0 0 6px rgba(137, 87, 229, 0.7) !important;
+}
+
+.pii-highlight[data-label="person"],
+.pii-highlight[data-label="name"] {
+    background-color: #1f6feb !important;
+    box-shadow: 0 0 3px rgba(31, 111, 235, 0.5) !important;
+}
+
+.pii-highlight[data-label="person"]:hover,
+.pii-highlight[data-label="name"]:hover {
+    background-color: #0969da !important;
+    box-shadow: 0 0 6px rgba(31, 111, 235, 0.7) !important;
+}
+
+/* Animation for initial highlight */
+@keyframes highlightPulse {
+    0% {
+        box-shadow: 0 0 10px rgba(240, 136, 62, 0.8);
+    }
+    50% {
+        box-shadow: 0 0 5px rgba(240, 136, 62, 0.4);
+    }
+    100% {
+        box-shadow: 0 0 3px rgba(240, 136, 62, 0.5);
+    }
+}
+
+.pii-highlight {
+    animation: highlightPulse 1s ease-in-out;
+}
+
+/* Ensure highlights work inside different text elements */
+p .pii-highlight,
+span .pii-highlight,
+div .pii-highlight,
+a .pii-highlight,
+button .pii-highlight,
+li .pii-highlight,
+td .pii-highlight,
+h1 .pii-highlight,
+h2 .pii-highlight,
+h3 .pii-highlight,
+h4 .pii-highlight,
+h5 .pii-highlight,
+h6 .pii-highlight {
+    background-color: #f0883e !important;
+    color: white !important;
+}
+
+/* Prevent highlights from breaking layout */
+.pii-highlight {
+    display: inline !important;
+    margin: 0 !important;
+    line-height: inherit !important;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .pii-highlight {
+        padding: 1px 3px !important;
+        font-size: 0.9em !important;
+    }
+}
+
+/* ============================================ */
+/* Correction Panel Styles                      */
+/* ============================================ */
+
+/* Correction panel button hover states */
+#pii-correction-panel button:hover {
+    opacity: 0.9;
+    transform: scale(1.02);
+}
+
+#pii-correction-panel button:active {
+    transform: scale(0.98);
+}
+
+/* Reject button specific hover */
+#pii-correction-panel .pii-reject-btn:hover {
+    background-color: #d32f2f !important;
+}
+
+/* Add button specific hover */
+#pii-add-missed-btn:hover {
+    background-color: #5a6edb !important;
+}
+
+/* Dropdown select styling */
+#pii-correction-panel select:focus {
+    outline: 2px solid #667eea;
+    outline-offset: 1px;
+}
+
+/* Scrollbar styling for entity list */
+#pii-correction-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+#pii-correction-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+#pii-correction-content::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+}
+
+#pii-correction-content::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+/* Entity item hover state */
+#pii-correction-panel .pii-entity-item:hover {
+    background: #eee !important;
+}
+
+/* Selection preview animation */
+#pii-selected-text-preview {
+    transition: all 0.2s ease;
+}
+
+/* Gear button in PII badge */
+#pii-badge-gear-btn:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    transform: rotate(30deg);
+}
+
+#pii-badge-gear-btn:active {
+    transform: rotate(90deg);
+}

@@ -1,0 +1,57 @@
+{
+  "manifest_version": 3,
+  "name": "Obscura - Real-Time PII Detection",
+  "version": "1.0.0",
+  "description": "Auto-detect and anonymize sensitive data instantly across all web inputs",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "tabs",
+    "contextMenus",
+    "storage",
+    "sidePanel"
+  ],
+  "host_permissions": [
+    "http://localhost:5001/*",
+    "http://127.0.0.1:5001/*",
+    "<all_urls>"
+  ],
+  "action": {
+    "default_title": "Obscura - Auto-Detect Sensitive Data",
+    "default_icons": {
+      "16": "icons/icon-16.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon-16.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png",
+    "512": "icons/icon-512.png"
+  },
+  "background": {
+    "service_worker": "background/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": [
+        "content/content.js",
+        "content/obscura-widget.js"
+      ],
+      "css": [
+        "content/content.css"
+      ],
+      "all_frames": false,
+      "run_at": "document_end"
+    }
+  ],
+  "side_panel": {
+    "default_path": "side-panel/side-panel.html"
+  },
+  "minimum_chrome_version": "114",
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; connect-src 'self' http://localhost:5001 http://127.0.0.1:5001"
+  }
+}

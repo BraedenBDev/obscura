@@ -1,0 +1,53 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+*.egg
+dist/
+build/
+*.whl
+
+# Virtual environments
+venv*/
+.venv
+ENV/
+env/
+
+# Obscura runtime data
+*.db
+*.log
+sessions.json
+models/
+extension_config.json
+
+# Node.js
+node_modules/
+*.crx
+*.pem
+
+# Test / Coverage
+coverage/
+.coverage
+htmlcov/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+__MACOSX/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Build artifacts
+*.bin
+*.dylib

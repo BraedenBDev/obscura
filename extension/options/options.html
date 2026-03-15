@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obscura Settings</title>
+    <link rel="stylesheet" href="options.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-logo">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div>
+                <h1>Obscura Settings</h1>
+                <p>Configure your privacy protection</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main">
+            <!-- Desktop Connection -->
+            <section class="settings-section">
+                <h2>
+                    <svg viewBox="0 0 16 16" fill="currentColor"><path d="M14.5 3a.5.5 0 01.5.5v9a.5.5 0 01-.5.5h-13a.5.5 0 01-.5-.5v-9a.5.5 0 01.5-.5h13zm-13-1A1.5 1.5 0 000 3.5v9A1.5 1.5 0 001.5 14h13a1.5 1.5 0 001.5-1.5v-9A1.5 1.5 0 0014.5 2h-13z"/><path d="M3 8.5a.5.5 0 01.5-.5h9a.5.5 0 010 1h-9a.5.5 0 01-.5-.5zm0 2a.5.5 0 01.5-.5h6a.5.5 0 010 1h-6a.5.5 0 01-.5-.5zm0-5a.5.5 0 01.5-.5h9a.5.5 0 01.5.5v1a.5.5 0 01-.5.5h-9a.5.5 0 01-.5-.5v-1z"/></svg>
+                    Desktop Application
+                </h2>
+
+                <div class="setting-group">
+                    <label for="hostInput">Host Address:</label>
+                    <input type="text" id="hostInput" placeholder="localhost" value="localhost">
+                    <p class="help">IP address or hostname of your desktop app</p>
+                </div>
+
+                <div class="setting-group">
+                    <label for="portInput">Port:</label>
+                    <input type="number" id="portInput" placeholder="5001" value="5001" min="1" max="65535">
+                    <p class="help">Port number your app is running on (default: 5001)</p>
+                </div>
+
+                <button id="testConnectionBtn" class="btn btn-primary">
+                    <svg viewBox="0 0 16 16" fill="currentColor"><path d="M6 3.5a.5.5 0 01.5-.5h4a.5.5 0 01.5.5v1a.5.5 0 01-.5.5h-4a.5.5 0 01-.5-.5v-1zM6 6a.5.5 0 000 1h4a.5.5 0 000-1H6zm0 2a.5.5 0 000 1h4a.5.5 0 000-1H6zm0 2a.5.5 0 000 1h4a.5.5 0 000-1H6zM2 3.5A1.5 1.5 0 013.5 2h9A1.5 1.5 0 0114 3.5v9a1.5 1.5 0 01-1.5 1.5h-9A1.5 1.5 0 012 12.5v-9z"/></svg>
+                    Test Connection
+                </button>
+                <div id="connectionStatus"></div>
+            </section>
+
+            <!-- Detection Settings -->
+            <section class="settings-section">
+                <h2>
+                    <svg viewBox="0 0 16 16" fill="currentColor"><path d="M11.742 10.344a6.5 6.5 0 10-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 001.415-1.414l-3.85-3.85a1.007 1.007 0 00-.115-.1zM12 6.5a5.5 5.5 0 11-11 0 5.5 5.5 0 0111 0z"/></svg>
+                    Detection Settings
+                </h2>
+
+                <div class="setting-group">
+                    <label for="presetSelect">Default Preset:</label>
+                    <select id="presetSelect">
+                        <option value="all">All PII Types</option>
+                        <option value="personal">Personal Info</option>
+                        <option value="financial">Financial Data</option>
+                        <option value="medical">Medical Records</option>
+                        <option value="ids">Government IDs</option>
+                        <option value="contact">Contact & Location</option>
+                        <option value="digital">Digital Identifiers</option>
+                    </select>
+                    <p class="help">Choose the default detection type</p>
+                </div>
+
+                <div class="setting-group">
+                    <label for="thresholdInput">Default Sensitivity:</label>
+                    <div class="threshold-control">
+                        <input type="range" id="thresholdInput" min="0" max="100" value="30">
+                        <span id="thresholdDisplay">30%</span>
+                    </div>
+                    <p class="help">Lower values = more detections, higher values = more precise</p>
+                </div>
+
+                <div class="setting-group checkbox">
+                    <input type="checkbox" id="hybridModeToggle" checked>
+                    <label for="hybridModeToggle">Enable Hybrid Mode (AI + Regex)</label>
+                    <p class="help">Combines AI detection with pattern matching for better coverage</p>
+                </div>
+
+                <div class="setting-group checkbox">
+                    <input type="checkbox" id="enableHighlightToggle" checked>
+                    <label for="enableHighlightToggle">Highlight Results on Pages</label>
+                    <p class="help">Automatically highlight detected PII on web pages</p>
+                </div>
+
+                <div class="setting-group checkbox">
+                    <input type="checkbox" id="autoDetectToggle">
+                    <label for="autoDetectToggle">Auto-Detect in Forms</label>
+                    <p class="help">Automatically scan form inputs while typing</p>
+                </div>
+            </section>
+
+            <!-- Advanced Detection -->
+            <section class="settings-section">
+                <h2>
+                    <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 4.754a3.246 3.246 0 100 6.492 3.246 3.246 0 000-6.492zM5.754 8a2.246 2.246 0 114.492 0 2.246 2.246 0 01-4.492 0z"/><path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 01-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 01-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 01.52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 011.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 011.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 01.52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 01-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 01-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 002.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 001.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 00-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 00-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 00-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 001.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 003.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 002.692-1.115l.094-.319z"/></svg>
+                    Advanced Detection
+                </h2>
+
+                <div class="setting-group checkbox">
+                    <input type="checkbox" id="semanticAnalysisToggle" checked>
+                    <label for="semanticAnalysisToggle">Enable Semantic Analysis</label>
+                    <p class="help">Uses AI to understand context and meaning</p>
+                </div>
+
+                <div class="setting-group checkbox">
+                    <input type="checkbox" id="contextAwareToggle" checked>
+                    <label for="contextAwareToggle">Context-Aware Detection</label>
+                    <p class="help">Detects PII based on surrounding context</p>
+                </div>
+            </section>
+
+            <!-- Privacy & Data -->
+            <section class="settings-section">
+                <h2>
+                    <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a2 2 0 012 2v4H6V3a2 2 0 012-2zm3 6V3a3 3 0 00-6 0v4a2 2 0 00-2 2v5a2 2 0 002 2h6a2 2 0 002-2V9a2 2 0 00-2-2z"/></svg>
+                    Privacy & Data
+                </h2>
+
+                <div class="setting-group checkbox">
+                    <input type="checkbox" id="saveHistoryToggle" checked>
+                    <label for="saveHistoryToggle">Save Detection History</label>
+                    <p class="help">Keep a local history of recent scans (stored locally only)</p>
+                </div>
+
+                <div class="setting-group">
+                    <label>Data Storage:</label>
+                    <p class="help">All data is stored locally. No data is sent to external servers.</p>
+                    <button id="clearDataBtn" class="btn btn-danger">
+                        <svg viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M6.5 1.75a.25.25 0 01.25-.25h2.5a.25.25 0 01.25.25V3h-3V1.75zm4.5 0V3h2.25a.75.75 0 010 1.5H2.75a.75.75 0 010-1.5H5V1.75C5 .784 5.784 0 6.75 0h2.5C10.216 0 11 .784 11 1.75zM4.496 6.675a.75.75 0 10-1.492.15l.66 6.6A1.75 1.75 0 005.405 15h5.19c.9 0 1.652-.681 1.741-1.576l.66-6.6a.75.75 0 00-1.492-.149l-.66 6.6a.25.25 0 01-.249.225h-5.19a.25.25 0 01-.249-.225l-.66-6.6z"/></svg>
+                        Clear All Local Data
+                    </button>
+                </div>
+            </section>
+
+            <!-- About -->
+            <section class="settings-section">
+                <h2>
+                    <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 15A7 7 0 118 1a7 7 0 010 14zm0 1A8 8 0 108 0a8 8 0 000 16z"/><path d="M5.255 5.786a.237.237 0 00.241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 00.25.246h.811a.25.25 0 00.25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/></svg>
+                    About
+                </h2>
+                <p>
+                    <strong>Obscura v1.0.0</strong><br>
+                    Advanced PII Detection and Anonymization powered by GLiNER AI
+                </p>
+                <p style="margin-top: 12px;">
+                    <strong>Local Processing</strong> - All analysis happens on your machine<br>
+                    <strong>No Cloud</strong> - No data sent to external servers<br>
+                    <strong>Privacy First</strong> - Your data is never stored or shared<br>
+                    <strong>Offline Capable</strong> - Works completely offline<br>
+                    <strong>98%+ Accuracy</strong> - Next-generation AI detection
+                </p>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <button id="saveBtn" class="btn btn-primary">
+                <svg viewBox="0 0 16 16" fill="currentColor"><path d="M11.251.068a.5.5 0 01.227.58L9.677 6.5H13a.5.5 0 01.364.843l-8 8.5a.5.5 0 01-.842-.49L6.323 9.5H3a.5.5 0 01-.364-.843l8-8.5a.5.5 0 01.615-.09z"/></svg>
+                Save Settings
+            </button>
+            <button id="resetBtn" class="btn btn-secondary">
+                <svg viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M8 3a5 5 0 104.546 2.914.5.5 0 01.908-.417A6 6 0 118 2v1z"/><path d="M8 4.466V.534a.25.25 0 01.41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 018 4.466z"/></svg>
+                Reset to Defaults
+            </button>
+            <span id="saveStatus" class="save-status"></span>
+        </footer>
+    </div>
+
+    <script src="options.js"></script>
+</body>
+</html>

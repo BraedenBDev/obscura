@@ -1,0 +1,415 @@
+/* ============================================
+   Obscura Options - Terminal Security
+   Primary Accent: Steel Blue (#58a6ff)
+   ============================================ */
+
+:root {
+    /* Background hierarchy */
+    --bg-base: #0d1117;
+    --bg-surface: #161b22;
+    --bg-elevated: #21262d;
+    --bg-overlay: #30363d;
+
+    /* Border */
+    --border-default: #30363d;
+    --border-muted: #21262d;
+
+    /* Text */
+    --text-primary: #e6edf3;
+    --text-secondary: #8b949e;
+    --text-muted: #6e7681;
+
+    /* Accent - Steel Blue */
+    --accent: #58a6ff;
+    --accent-muted: rgba(88, 166, 255, 0.15);
+    --accent-emphasis: #79b8ff;
+
+    /* Semantic */
+    --success: #238636;
+    --success-muted: rgba(35, 134, 54, 0.15);
+    --danger: #da3633;
+    --danger-muted: rgba(218, 54, 51, 0.15);
+
+    /* Typography */
+    --font-mono: 'JetBrains Mono', 'SF Mono', 'Consolas', monospace;
+    --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-sans);
+    background: var(--bg-base);
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+
+.header {
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border-default);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.header-logo {
+    width: 48px;
+    height: 48px;
+    background: var(--accent);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-logo svg {
+    width: 28px;
+    height: 28px;
+    fill: var(--bg-base);
+}
+
+.header h1 {
+    font-family: var(--font-mono);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.header p {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+/* ============================================
+   SETTINGS SECTIONS
+   ============================================ */
+
+.settings-section {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-default);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 16px;
+}
+
+.settings-section h2 {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.settings-section h2 svg {
+    width: 14px;
+    height: 14px;
+    fill: currentColor;
+}
+
+/* Setting groups */
+.setting-group {
+    margin-bottom: 20px;
+}
+
+.setting-group:last-child {
+    margin-bottom: 0;
+}
+
+.setting-group label {
+    display: block;
+    font-weight: 600;
+    font-size: 13px;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+}
+
+.setting-group input[type="text"],
+.setting-group input[type="number"],
+.setting-group select {
+    width: 100%;
+    padding: 10px 12px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-default);
+    color: var(--text-primary);
+    border-radius: 6px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    transition: all 0.15s ease;
+}
+
+.setting-group input[type="text"]:focus,
+.setting-group input[type="number"]:focus,
+.setting-group select:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px var(--accent-muted);
+}
+
+.help {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 6px;
+}
+
+/* Threshold slider */
+.threshold-control {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.threshold-control input[type="range"] {
+    flex: 1;
+    height: 6px;
+    padding: 0;
+    cursor: pointer;
+    background: var(--bg-elevated);
+    border-radius: 3px;
+    -webkit-appearance: none;
+}
+
+.threshold-control input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    background: var(--accent);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.threshold-control input[type="range"]::-webkit-slider-thumb:hover {
+    background: var(--accent-emphasis);
+    box-shadow: 0 0 8px var(--accent-muted);
+}
+
+#thresholdDisplay {
+    min-width: 44px;
+    text-align: right;
+    font-family: var(--font-mono);
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--accent);
+}
+
+/* Checkbox groups */
+.setting-group.checkbox {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.setting-group.checkbox input[type="checkbox"] {
+    margin-top: 2px;
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+    accent-color: var(--accent);
+}
+
+.setting-group.checkbox label {
+    margin: 0;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 13px;
+}
+
+.setting-group.checkbox .help {
+    width: 100%;
+    margin-left: 26px;
+    margin-top: 2px;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+
+.btn {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn svg {
+    width: 14px;
+    height: 14px;
+    fill: currentColor;
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: var(--bg-base);
+}
+
+.btn-primary:hover {
+    background: var(--accent-emphasis);
+    box-shadow: 0 4px 12px rgba(88, 166, 255, 0.3);
+}
+
+.btn-secondary {
+    background: var(--bg-elevated);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-default);
+}
+
+.btn-secondary:hover {
+    background: var(--bg-overlay);
+    color: var(--text-primary);
+}
+
+.btn-danger {
+    background: var(--danger-muted);
+    color: var(--danger);
+    border: 1px solid rgba(218, 54, 51, 0.3);
+}
+
+.btn-danger:hover {
+    background: var(--danger);
+    color: var(--text-primary);
+}
+
+/* Connection status */
+#testConnectionBtn,
+#clearDataBtn {
+    margin-top: 12px;
+}
+
+.connection-status-success {
+    background: var(--success-muted);
+    border: 1px solid rgba(35, 134, 54, 0.3);
+    border-radius: 6px;
+    padding: 12px;
+    color: var(--success);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    margin-top: 12px;
+}
+
+.connection-status-error {
+    background: var(--danger-muted);
+    border: 1px solid rgba(218, 54, 51, 0.3);
+    border-radius: 6px;
+    padding: 12px;
+    color: var(--danger);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    margin-top: 12px;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.footer {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+    padding-top: 24px;
+    border-top: 1px solid var(--border-default);
+    margin-top: 8px;
+}
+
+.save-status {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--success);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* ============================================
+   ABOUT SECTION
+   ============================================ */
+
+.settings-section p {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+.settings-section p strong {
+    color: var(--text-primary);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 600px) {
+    .container {
+        padding: 16px;
+    }
+
+    .header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .header h1 {
+        font-size: 18px;
+    }
+
+    .footer {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* ============================================
+   SCROLLBAR
+   ============================================ */
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-base);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--bg-overlay);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-muted);
+}
