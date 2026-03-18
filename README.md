@@ -1,6 +1,8 @@
 <div align="center">
 
-<img src="docs/images/logo-horizontal.svg" alt="Obscura logo" width="360" />
+<p align="center">
+  <img src="docs/images/logo-horizontal.svg" alt="Obscura logo" width="360" />
+</p>
 
 <br />
 <br />
