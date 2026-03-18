@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 120" fill="none">
+  <!-- Eye mark -->
+  <g>
+    <path d="M15 60 Q60 18 105 60 Q60 102 15 60 Z" stroke="#1e1b4b" stroke-width="4" fill="none"/>
+    <circle cx="60" cy="60" r="18" fill="#1e1b4b"/>
+    <text x="60" y="70" text-anchor="middle" fill="white" font-family="'SF Mono', 'Fira Code', 'JetBrains Mono', Consolas, monospace" font-size="32" font-weight="700">*</text>
+  </g>
+  <!-- Wordmark -->
+  <text x="130" y="74" font-family="'SF Mono', 'Fira Code', 'JetBrains Mono', Consolas, monospace" font-size="56" font-weight="700" fill="#1e1b4b" letter-spacing="-1">obscura</text>
+</svg>

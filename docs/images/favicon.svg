@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <!-- Eye outline - thicker for small size -->
+  <path d="M4 16 Q16 5 28 16 Q16 27 4 16 Z" stroke="#1e1b4b" stroke-width="2" fill="none"/>
+  <!-- Iris -->
+  <circle cx="16" cy="16" r="5" fill="#1e1b4b"/>
+  <!-- Asterisk pupil -->
+  <text x="16" y="19.5" text-anchor="middle" fill="white" font-family="monospace" font-size="9" font-weight="700">*</text>
+</svg>
