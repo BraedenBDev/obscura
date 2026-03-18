@@ -4,9 +4,6 @@
   <img src="docs/images/logo-horizontal.svg" alt="Obscura logo" width="360" />
 </p>
 
-<br />
-<br />
-
 **Real-time PII detection and anonymization for AI-powered workflows.**
 
 Detect and mask sensitive data before it reaches AI services like ChatGPT or Claude — then restore original values when the AI responds. 100% local. Nothing leaves your machine.
